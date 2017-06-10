@@ -25,7 +25,7 @@ func (helper TelapiHelper) TelapiRequest(method string, urlStr string, params ma
 
 	for i := 1; i <= maxRetries; i++ {
 		client := &http.Client{
-			Timeout: 60 * time.Second,
+			Timeout: 10 * time.Second,
 		}
 		req, err := http.NewRequest(method, urlStr, bytes.NewBufferString(data.Encode()))
 		if err != nil {
